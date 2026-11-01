@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LearnHub Online Learning</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f3fc;
+            color: #183657;
+        }
+      
+        nav {
+            background-color: #15365b;
+            color: white;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            color: #65e6d0;
+            font-size: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 13px;
+        }
+
+        nav a:hover {
+            color: #ffd45b;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #174b70, #279b9b);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background-color: #ffd45b;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 30px 5%;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 22px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px #ddd;
+            font-size: 13px;
+        }
+
+        .category:hover {
+            background-color: #dff5f3;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 7px;
+            overflow: hidden;
+            box-shadow: 0 2px 7px #ddd;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+        }
+
+        .one {
+            background: linear-gradient(120deg, #328b91, #f4d56c);
+        }
+
+        .two {
+            background: linear-gradient(120deg, #e84949, #7652be);
+        }
+
+        .three {
+            background: linear-gradient(120deg, #6525c8, #42b9d4);
+        }
+
+        .four {
+            background: linear-gradient(120deg, #f16b82, #ffbd69);
+        }
+
+        .card-content {
+            padding: 12px;
+        }
+
+        .tag {
+            color: #269c9b;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 11px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .details {
+            font-size: 10px;
+            color: #555;
+            line-height: 2;
+        }
+
+        .progress {
+            background-color: #ddd;
+            height: 6px;
+            border-radius: 5px;
+            margin: 8px 0;
+        }
+
+        .progress span {
+            display: block;
+            height: 6px;
+            background-color: #32a58b;
+            border-radius: 5px;
+        }
+
+        .enroll {
+            background-color: #15365b;
+            color: white;
+            width: 100%;
+            padding: 9px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .enroll:hover {
+            background-color: #278b98;
+        }
+
+        .objectives {
+            background-color: #e4f2f5;
+        }
+
+        .objective-list {
+            max-width: 600px;
+            margin: auto;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .instructors {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .teacher {
+            background-color: white;
+            text-align: center;
+            padding: 22px;
+            border-radius: 6px;
+            box-shadow: 0 2px 7px #ddd;
+        }
+
+        .teacher .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .teacher h3 {
+            color: #258b92;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .teacher p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        footer {
+            background-color: #15365b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        @media(max-width: 800px) {
+            .courses,
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
+
+        @media(max-width: 500px) {
+            .courses,
+            .categories,
+            .instructors {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 23px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <h2>📚 LearnHub</h2>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#courses">Courses</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#objectives">Learning Goals</a>
+    </div>
+
+</nav>
+
+<div class="hero" id="home">
+
+    <h1>Learn New Skills Online</h1>
+
+    <p>Learn at your own pace with beginner-friendly courses.</p>
+
+    <button>Explore Courses</button>
+
+</div>
+
+<section id="categories">
+
+    <h2>Course Categories</h2>
+
+    <div class="categories">
+
+        <div class="category">💻 Programming</div>
+
+        <div class="category">🌐 Web Development</div>
+
+        <div class="category">🤖 Artificial Intelligence</div>
+
+        <div class="category">🎨 Graphic Design</div>
+
+    </div>
+
+</section>
+
+<section id="courses">
+
+    <h2>Popular Courses</h2>
+
+    <div class="courses">
+
+        <div class="card">
+
+            <div class="course-image one">💻</div>
+
+            <div class="card-content">
+
+                <span class="tag">Programming</span>
+
+                <h3>Python for Beginners</h3>
+
+                <p>
+                    Learn variables, loops, functions,
+                    and basic programming.
+                </p>
+
+                <div class="details">
+                     Video lessons - 12 lessons<br>
+                     Instructor: Rahul Sharma<br>
+                     Sample progress - 60%
+                </div>
+
+                <div class="progress">
+                    <span style="width:60%"></span>
+                </div>
+
+                <button class="enroll">Enroll Now</button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="course-image two">🌐</div>
+
+            <div class="card-content">
+
+                <span class="tag">Web Development</span>
+
+                <h3>HTML & CSS Basics</h3>
+
+                <p>
+                    Build websites with HTML, CSS,
+                    and modern web tools.
+                </p>
+
+                <div class="details">
+                     Video lessons - 10 lessons<br>
+                     Instructor: Priya Reddy<br>
+                    Sample progress - 35%
+                </div>
+
+                <div class="progress">
+                    <span style="width:35%"></span>
+                </div>
+
+                <button class="enroll">Enroll Now</button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="course-image three">🤖</div>
+
+            <div class="card-content">
+
+                <span class="tag">Artificial Intelligence</span>
+
+                <h3>Introduction to AI</h3>
+
+                <p>
+                    Discover AI concepts and real-world
+                    applications.
+                </p>
+
+                <div class="details">
+                    ▶ Video lessons - 8 lessons<br>
+                     Instructor: Arjun Kumar<br>
+                     Sample progress - 20%
+                </div>
+
+                <div class="progress">
+                    <span style="width:20%"></span>
+                </div>
+
+                <button class="enroll">Enroll Now</button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="course-image four">🎨</div>
+
+            <div class="card-content">
+
+                <span class="tag">Creative Design</span>
+
+                <h3>Graphic Design Basics</h3>
+
+                <p>
+                    Learn colors, typography,
+                    and creative design.
+                </p>
+
+                <div class="details">
+                     Video lessons - 6 lessons<br>
+                     Instructor: Sneha Rao<br>
+                     Sample progress - 0%
+                </div>
+
+                <div class="progress">
+                    <span style="width:0%"></span>
+                </div>
+
+                <button class="enroll">Enroll Now</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+  
+<section class="objectives" id="objectives">
+
+    <h2>Learning Objectives</h2>
+
+    <div class="objective-list">
+
+        <ul>
+            <li>Understand key concepts step by step.</li>
+
+            <li>Improve coding and problem-solving skills.</li>
+
+            <li>Build small projects for a portfolio.</li>
+
+            <li>Track course progress and practice regularly.</li>
+
+            <li>Prepare for future internships and careers.</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<section id="instructors">
+
+    <h2>Meet Our Instructors</h2>
+
+    <div class="instructors">
+
+        <div class="teacher">
+
+            <div class="icon"></div>
+
+            <h3>Rahul Sharma</h3>
+
+            <p>Python Programming</p>
+
+        </div>
+
+        <div class="teacher">
+
+            <div class="icon"></div>
+
+            <h3>Priya Reddy</h3>
+
+            <p>Web Development</p>
+
+        </div>
+
+        <div class="teacher">
+
+            <div class="icon"></div>
+
+            <h3>Arjun Kumar</h3>
+
+            <p>AI and Machine Learning</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3>LearnHub Online Learning</h3>
+
+    <p>Learn Today, Succeed Tomorrow! | © 2026</p>
+
+</footer>
+
+</body>
+</html>
