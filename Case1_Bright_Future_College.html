@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bright Future College</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4fa;
+            color: #193957;
+        }
+
+        header {
+            background: linear-gradient(to right, #17466d, #318b96);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 15px;
+        }
+
+        header p {
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #ffd45b;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ffb900;
+        }
+
+        section {
+            padding: 30px 5%;
+            text-align: center;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .about {
+            background-color: #e2f0fa;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #cccccc;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #287c88;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .faculty {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .facilities {
+            background-color: #e2f0fa;
+        }
+
+        .events {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .admission {
+            background-color: #173e67;
+            color: white;
+        }
+
+        .admission p {
+            margin: 15px;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: #102c49;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to Bright Future College</h1>
+    <p>Learn Today, Lead Tomorrow</p>
+    <button>Explore Admissions</button>
+</header>
+
+<section class="about">
+    <h2>About Our College</h2>
+    <p>
+        We support students through quality education,
+        practical learning, experienced faculty, and
+        opportunities to develop skills for the future.
+    </p>
+</section>
+
+<section>
+    <h2>Departments & Courses</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>💻 Computer Science</h3>
+            <p>B.Tech in Computer Science and Engineering.</p>
+        </div>
+
+        <div class="card">
+            <h3>🤖 AI & Machine Learning</h3>
+            <p>Learn artificial intelligence, data, and machine learning.</p>
+        </div>
+
+        <div class="card">
+            <h3>📡 Electronics</h3>
+            <p>Explore electronics and communication systems.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ Electrical Engineering</h3>
+            <p>Study electrical circuits and power systems.</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Faculty Profiles</h2>
+
+    <div class="container faculty">
+
+        <div class="card">
+            <h3>Dr. Ananya Rao</h3>
+            <p>Computer Science Faculty</p>
+            <p>Focus: Programming and software development.</p>
+        </div>
+
+        <div class="card">
+            <h3>Mr. Kiran Kumar</h3>
+            <p>AI Faculty</p>
+            <p>Focus: Machine learning and data science.</p>
+        </div>
+
+        <div class="card">
+            <h3>Ms. Priya Sharma</h3>
+            <p>Electronics Faculty</p>
+            <p>Focus: Circuits and communication systems.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="facilities">
+    <h2>Campus Facilities</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>📚 Library</h3>
+            <p>Books, journals, and study spaces.</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Laboratories</h3>
+            <p>Practical sessions with computer and engineering labs.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚽ Sports</h3>
+            <p>Sports areas and recreational activities.</p>
+        </div>
+
+        <div class="card">
+            <h3>🚌 Transport</h3>
+            <p>Student transport information and support.</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>College Events</h2>
+
+    <div class="container events">
+
+        <div class="card">
+            <h3>Tech Fest</h3>
+            <p>Project exhibitions, coding events, and workshops.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cultural Day</h3>
+            <p>Music, dance, and student performances.</p>
+        </div>
+
+        <div class="card">
+            <h3>Career Seminar</h3>
+            <p>Career guidance and industry talks.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="admission">
+    <h2>Admissions Procedure</h2>
+
+    <p>
+        1. Check eligibility →
+        2. Submit application →
+        3. Verify documents →
+        4. Confirm admission.
+    </p>
+
+    <button>Enquire Now</button>
+</section>
+
+<footer>
+    <p>© 2026 Bright Future College | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
