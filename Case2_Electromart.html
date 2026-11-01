@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ElectroMart - Online Electronics Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f5fa;
+            color: #24334b;
+        }
+
+        
+        nav {
+            background-color: #142746;
+            color: white;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            color: #ffc94d;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffc94d;
+        }
+        .hero {
+            background: linear-gradient(
+                to right, #142746, #24858c
+            );
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            margin-bottom: 22px;
+        }
+
+        .hero button {
+            background-color: #ffd45c;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+      
+        section {
+            padding: 35px 5%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        
+        .categories {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .categories span {
+            display: inline-block;
+            background-color: white;
+            padding: 9px 18px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 13px;
+            box-shadow: 0 2px 5px #ddd;
+        }
+
+      
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px #ddd;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .discount {
+            background-color: #ed5260;
+            color: white;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+
+        .product-image {
+            background-color: #e8f0fa;
+            height: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .price {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #287f8b;
+            font-size: 16px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .card button {
+            width: 100%;
+            background-color: #267b88;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-top: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #164d61;
+        }
+
+        
+        .comparison {
+            background-color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #172b4d;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 14px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #edf3fa;
+        }
+
+        
+        .specifications {
+            background-color: #e3f1fa;
+        }
+
+        .spec-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .spec-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 7px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        .spec-card h3 {
+            margin-bottom: 12px;
+            color: #267b88;
+            font-size: 15px;
+        }
+
+        .spec-card p {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        
+        .contact {
+            text-align: center;
+            padding: 35px;
+        }
+
+        .contact p {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        
+        footer {
+            background-color: #142746;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+      
+        @media(max-width: 800px) {
+            .products,
+            .spec-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
+
+        @media(max-width: 500px) {
+            .products,
+            .spec-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            table {
+                font-size: 11px;
+            }
+
+            th, td {
+                padding: 7px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2> ElectroMart</h2>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#compare">Compare</a>
+        <a href="#specs">Specifications</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+<div class="hero" id="home">
+
+    <h1>Upgrade Your Technology</h1>
+
+    <p>
+        Laptops, smartphones, accessories,
+        and smart devices in one place.
+    </p>
+
+    <button>Explore Products</button>
+
+</div>
+
+<section id="products">
+
+    <h2>Shop Electronics</h2>
+
+    <div class="categories">
+        <span>Laptops</span>
+        <span>Smartphones</span>
+        <span>Accessories</span>
+        <span>Smart Devices</span>
+    </div>
+
+    <div class="products">
+        <div class="card">
+
+            <span class="discount">15% OFF</span>
+
+            <div class="product-image">💻</div>
+
+            <div class="card-content">
+
+                <h3>Student Laptop</h3>
+
+                <p>14-inch display · 8GB RAM · 512GB SSD</p>
+
+                <div class="price">
+                    ₹42,499
+                    <span class="old-price">₹49,999</span>
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+        </div>
+
+        
+        <div class="card">
+
+            <span class="discount">10% OFF</span>
+
+            <div class="product-image">📱</div>
+
+            <div class="card-content">
+
+                <h3>Smartphone Pro</h3>
+
+                <p>6.5-inch display · 128GB storage · Dual camera</p>
+
+                <div class="price">
+                    ₹22,499
+                    <span class="old-price">₹24,999</span>
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+        </div>
+        <div class="card">
+
+            <span class="discount">20% OFF</span>
+
+            <div class="product-image">🎧</div>
+
+            <div class="card-content">
+
+                <h3>Wireless Headphones</h3>
+
+                <p>Bluetooth · Built-in microphone · 20-hour battery</p>
+
+                <div class="price">
+                    ₹1,599
+                    <span class="old-price">₹1,999</span>
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+        </div>
+
+        
+        <div class="card">
+
+            <span class="discount">12% OFF</span>
+
+            <div class="product-image">⌚</div>
+
+            <div class="card-content">
+
+                <h3>Smart Watch</h3>
+
+                <p>Activity tracking · Notifications · Water resistant</p>
+
+                <div class="price">
+                    ₹3,499
+                    <span class="old-price">₹3,999</span>
+                </div>
+
+                <button>View Details</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="comparison" id="compare">
+
+    <h2>Product Comparison</h2>
+
+    <table>
+
+        <tr>
+            <th>Feature</th>
+            <th>Student Laptop</th>
+            <th>Smartphone Pro</th>
+            <th>Smart Watch</th>
+        </tr>
+
+        <tr>
+            <td>Category</td>
+            <td>Laptop</td>
+            <td>Smartphone</td>
+            <td>Smart Device</td>
+        </tr>
+
+        <tr>
+            <td>Memory / Storage</td>
+            <td>8GB RAM / 512GB SSD</td>
+            <td>128GB Storage</td>
+            <td>Internal storage varies</td>
+        </tr>
+
+        <tr>
+            <td>Display</td>
+            <td>14-inch</td>
+            <td>6.5-inch</td>
+            <td>Touch Display</td>
+        </tr>
+
+        <tr>
+            <td>Battery</td>
+            <td>Up to 8 hours</td>
+            <td>All-day use</td>
+            <td>Up to 5 days</td>
+        </tr>
+
+        <tr>
+            <td>Sample Price</td>
+            <td>₹42,499</td>
+            <td>₹22,499</td>
+            <td>₹3,499</td>
+        </tr>
+
+    </table>
+
+</section>
+<section class="specifications" id="specs">
+
+    <h2>Product Specifications</h2>
+
+    <div class="spec-container">
+
+        <div class="spec-card">
+
+            <h3> Student Laptop</h3>
+
+            <p>
+                Processor: Modern multi-core CPU<br>
+                RAM: 8GB<br>
+                Storage: 512GB SSD<br>
+                Best For: Study and programming
+            </p>
+
+        </div>
+
+        <div class="spec-card">
+
+            <h3> Smartphone Pro</h3>
+
+            <p>
+                Display: 6.5-inch<br>
+                Storage: 128GB<br>
+                Camera: Dual camera<br>
+                Best For: Everyday use
+            </p>
+
+        </div>
+
+        <div class="spec-card">
+
+            <h3>Wireless Headphones</h3>
+
+            <p>
+                Connection: Bluetooth<br>
+                Microphone: Built-in<br>
+                Battery: 20 hours<br>
+                Best For: Music and online classes
+            </p>
+
+        </div>
+
+        <div class="spec-card">
+
+            <h3>Smart Watch</h3>
+
+            <p>
+                Display: Touchscreen<br>
+                Features: Activity tracking<br>
+                Alerts: Call and message notifications<br>
+                Best For: Daily activity tracking
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="contact" id="contact">
+
+    <h2>Contact ElectroMart</h2>
+
+    <p>Email: support@example.com</p>
+
+    <p>For More Information, Please Contact Our Store Team.</p>
+
+</section>
+<footer>
+
+    <p>
+        © 2026 ElectroMart |
+        Sample Student Project.
+        Prices and specifications are illustrative.
+    </p>
+
+</footer>
+
+</body>
+</html>
